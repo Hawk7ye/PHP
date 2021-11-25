@@ -2,13 +2,19 @@
 	header('Access-Control-Allow-Origin: *');
 	header('Content-Type: application/json');
 
+	/*
+	 * Example: mydomain.com
+	 */
 	$domain 		= "";
-	$domain_update	= "";
+	/*
+	 * Example: subdomain.mydomain.com
+	 */
+	$subdomain	= "";
 	$password 		= "";
 	$ip 			= exec("curl -6 https://ifconfig.co/");
 
 	$url = $domain . ":" . $password . "@dyndns.strato.com/nic/update?hostname=";
-	$send = $url . $domain_update . "&myip=" . $ip;
+	$send = $url . $subdomain . "&myip=" . $ip;
 
 	$agent= 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)';
 
